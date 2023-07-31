@@ -222,13 +222,13 @@ class JarvisTools:
         self.previous_tasks.append(task_info)
         return task_info.result
     
-class JarvisSuperAGIToolsInput(BaseModel):
+class JarvisSuperAGIToolInput(BaseModel):
     task: str = Field(..., description="task to be executed")
 
 
-class JarvisSuperAGITools(BaseTool):
+class JarvisSuperAGITool(BaseTool):
     name: str = "jarvis"
-    args_schema: Type[BaseModel] = JarvisSuperAGIToolsInput
+    args_schema: Type[BaseModel] = JarvisSuperAGIToolInput
     description: str = (
         "An autonomous agent, the tasks I am good at include: "
         "<autonomously browse the Internet and extract task-related information>. "
