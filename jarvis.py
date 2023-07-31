@@ -239,7 +239,3 @@ class JarvisSuperAGITools(BaseTool):
 
     def _execute(self, task: str = None):
         return self.agent.exec(task)
-
-tool = JarvisSuperAGITools()
-answer = tool._execute("what's tidb?")
-print(answer)
