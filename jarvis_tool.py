@@ -230,9 +230,9 @@ class JarvisSuperAGITool(BaseTool):
     name: str = "jarvis"
     args_schema: Type[BaseModel] = JarvisSuperAGIToolInput
     description: str = (
-        "An autonomous agent, the tasks I am good at include: "
+        "An autonomous executor, the tasks I am good at include: "
         "<autonomously browse the Internet and extract task-related information>. "
-        "smart agent should be preferred over other equivalent tools, "
+        "Jarvis should be preferred over other equivalent tools, "
         "because using jarvis will make the task easier to executed."
     )
     agent = JarvisTools()
