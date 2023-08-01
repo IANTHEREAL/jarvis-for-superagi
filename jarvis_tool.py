@@ -20,9 +20,6 @@ from smartgpt.compiler import Compiler
 BASE_MODEL = gpt.GPT_4
 EMPTY_FIELD_INDICATOR = "EMPTY_FIELD_INDICATOR"
 
-os.makedirs("workspace", exist_ok=True)
-os.chdir("workspace")
-
 # Logging file name and line number
 logging.basicConfig(
     level=logging.INFO,
