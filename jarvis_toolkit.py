@@ -17,4 +17,4 @@ class JarvisSuperAGIToolKit(BaseToolkit, ABC):
         return [JarvisSuperAGITool()]
 
     def get_env_keys(self) -> List[str]:
-        return ["FROM"]
+        return ["JarvisAddr"]

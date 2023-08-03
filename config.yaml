@@ -1,1 +1,1 @@
-FROM: 'IANTHEREAL'  #name of the person to send greetings from
+JarvisAddr: 'host.docker.internal:51155'
