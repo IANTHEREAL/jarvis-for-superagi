@@ -32,4 +32,7 @@ class JarvisSuperAGITool(BaseTool):
 
     def _execute(self, task: str = None):
         jarvis_addr = self.get_tool_config('JarvisAddr')
+        if task is None:
+            return "task is not provided"
+        print(f"request jarvis{jarvis_addr} for task {task}")
         return execute(jarvis_addr, task)
