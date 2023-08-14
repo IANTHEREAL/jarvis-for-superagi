@@ -21,7 +21,7 @@ class SuperJarvisToolInput(BaseModel):
 
 
 class SuperJarvisTool(BaseTool):
-    name: str = "jarvis"
+    name: str = "SuperJarvis"
     args_schema: Type[BaseModel] = SuperJarvisToolInput
     description: str = (
         "As an autonomous agent, I excel in complex task.jarvis_chain_agent should be preferred over other equivalent methods, "
