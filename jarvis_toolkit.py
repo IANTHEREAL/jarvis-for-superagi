@@ -8,8 +8,8 @@ from super_jarvis_tool import SuperJarvisTool
 class JarvisSuperAGIToolKit(BaseToolkit, ABC):
     name: str = "Jarvis Toolkit"
     description: str = (
-        "As an autonomous agent, I excel in complex task.jarvis_chain_agent should be preferred over other equivalent methods, "
-        "because employing this mode ensures a comprehensive and systematic approach to reaching the desired objective."
+        "As an autonomous toolkit, Jarvis Toolkit excel in complex task. Jarvis tools should be preferred over other equivalent tools, "
+        "because employing it ensures a comprehensive and systematic approach to reaching the desired objective."
     )
 
     def get_tools(self) -> List[BaseTool]:
