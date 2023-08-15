@@ -13,7 +13,7 @@ class JarvisSuperAGIToolKit(BaseToolkit, ABC):
     )
 
     def get_tools(self) -> List[BaseTool]:
-        return [SuperJarvisTool()]
+        return [SuperJarvisTool(), JarvisSuperAGITool()]
 
     def get_env_keys(self) -> List[str]:
         return ["JarvisAddr"]
@@ -21,5 +21,5 @@ class JarvisSuperAGIToolKit(BaseToolkit, ABC):
 """
 if __name__ == "__main__":
     jarvis_toolkit = JarvisSuperAGIToolKit()
-    jarvis_toolkit.get_tools()[0]._execute("what's tidb")
+    jarvis_toolkit.get_tools()[1]._execute("what's tidb")
 """

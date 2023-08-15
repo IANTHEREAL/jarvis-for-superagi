@@ -41,8 +41,8 @@ class SuperJarvisTool(BaseTool):
     name: str = "SuperJarvis"
     args_schema: Type[BaseModel] = SuperJarvisToolInput
     description: str = (
-        "As an autonomous agent, I excel in complex task.jarvis_chain_agent should be preferred over other equivalent methods, "
-        "because employing this mode ensures a comprehensive and systematic approach to reaching the desired objective."
+        "As an autonomous agent, SuperJarvis is good at handling complex tasks. "
+        "SuperJarvis can analyze and dismantle complex tasks and complete them one by one. The tasks SuperJarvis is good at include: information research, information processing, etc."
     )
 
     def _execute(self, task: str = None):
