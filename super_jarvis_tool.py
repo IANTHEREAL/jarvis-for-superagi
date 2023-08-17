@@ -18,7 +18,7 @@ def execute(jarvis_addr: str, task: str) -> str:
     for subtask in response.subtasks:
         format_subtak = {
             "subtask": subtask.task,
-            "result": subtask.result,
+            "result_overview": subtask.result,
             "error": subtask.error,
         }
         format_subtasks.append(format_subtak)
