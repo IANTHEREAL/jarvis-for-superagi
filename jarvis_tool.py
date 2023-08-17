@@ -21,7 +21,7 @@ class JarvisSuperAGIToolInput(BaseModel):
 
 
 class JarvisSuperAGITool(BaseTool):
-    name: str = "jarvis"
+    name: str = "Jarvis"
     args_schema: Type[BaseModel] = JarvisSuperAGIToolInput
     description: str = (
         "An autonomous task executor, the tasks I am good at include: "
