@@ -26,7 +26,7 @@ def execute(jarvis_addr: str, task: str) -> str:
     format_return = {
         "result": response.result,
         "error": response.error,
-        "Jarvis plans subtasks and their execution results overview as following": format_subtasks,
+        "subtasks(generated and excuted by Jarvis, EMPTY_FIELD_INDICATOR indicates that the execution result of this subtask is not obtained)": format_subtasks,
     }
     format_return_str = json.dumps(format_return, indent=4)
     print(f"Jarvis client received:{format_return_str}")
