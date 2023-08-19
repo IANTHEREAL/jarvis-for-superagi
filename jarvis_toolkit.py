@@ -1,7 +1,7 @@
 from abc import ABC
 from superagi.tools.base_tool import BaseToolkit, BaseTool
 from typing import Type, List
-from jarvis_tool import JarvisSuperAGITool
+from jarvis_tool import JarvisSuperAGITool, JarvisSkillSavingTool
 from super_jarvis_tool import SuperJarvisTool
 
 
@@ -13,7 +13,7 @@ class JarvisSuperAGIToolKit(BaseToolkit, ABC):
     )
 
     def get_tools(self) -> List[BaseTool]:
-        return [SuperJarvisTool(), JarvisSuperAGITool()]
+        return [SuperJarvisTool(), JarvisSuperAGITool(), JarvisSkillSavingTool()]
 
     def get_env_keys(self) -> List[str]:
         return ["JarvisAddr"]
