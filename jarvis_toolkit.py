@@ -21,5 +21,7 @@ class JarvisSuperAGIToolKit(BaseToolkit, ABC):
 """
 if __name__ == "__main__":
     jarvis_toolkit = JarvisSuperAGIToolKit()
-    jarvis_toolkit.get_tools()[1]._execute("what's tidb")
+    #jarvis_toolkit.get_tools()[0]._execute("collect top stories urls from hacker news front page", enable_skill_library=False)
+    response = jarvis_toolkit.get_tools()[2]._execute("badcase")
+    print(response)
 """
