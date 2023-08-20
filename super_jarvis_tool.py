@@ -13,7 +13,11 @@ from superagi.tools.base_tool import BaseTool
 def execute(jarvis_addr: str, task: str, enable_skill_library: bool) -> str:
     channel = grpc.insecure_channel(jarvis_addr)
     stub = jarvis_pb2_grpc.JarvisStub(channel)
-    response = stub.ChainExecute(jarvis_pb2.GoalExecuteRequest(goal=task,enable_skill_library=enable_skill_library))
+    response = stub.ChainExecute(
+        jarvis_pb2.GoalExecuteRequest(
+            goal=task, enable_skill_library=enable_skill_library
+        )
+    )
     format_subtasks = []
     for subtask in response.subtasks:
         format_subtak = {
@@ -24,6 +28,7 @@ def execute(jarvis_addr: str, task: str, enable_skill_library: bool) -> str:
         format_subtasks.append(format_subtak)
 
     format_return = {
+        "skill_id": response.agent_id,
         "result": response.result,
         "error": response.error,
         "subtasks(generated and excuted by Jarvis, EMPTY_FIELD_INDICATOR indicates that the execution result of this subtask is not obtained)": format_subtasks,
@@ -35,7 +40,10 @@ def execute(jarvis_addr: str, task: str, enable_skill_library: bool) -> str:
 
 class SuperJarvisToolInput(BaseModel):
     task: str = Field(..., description="task to be executed")
-    enable_skill_library: bool = Field(True, description="whether to enable skill library to resue existing skills. Please disable this option while you are training a new skill.")
+    enable_skill_library: bool = Field(
+        True,
+        description="whether to enable skill library to resue existing skills. Please disable this option while you are training a new skill.",
+    )
 
 
 class SuperJarvisTool(BaseTool):
