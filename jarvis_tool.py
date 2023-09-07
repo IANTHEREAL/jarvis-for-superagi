@@ -16,6 +16,7 @@ def execute(jarvis_addr: str, task: str) -> str:
     print(f"Jarvis client received:{response}")
     reps = {
         "result": response.result,
+        "error": response.error,
         "skill_id": response.agent_id,
     }
 
