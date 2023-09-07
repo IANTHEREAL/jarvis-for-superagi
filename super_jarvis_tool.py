@@ -22,7 +22,6 @@ def execute(jarvis_addr: str, task: str, enable_skill_library: bool) -> str:
     for subtask in response.subtasks:
         format_subtak = {
             "subtask": subtask.task,
-            "result_overview": subtask.result,
             "error": subtask.error,
         }
         format_subtasks.append(format_subtak)
@@ -31,7 +30,7 @@ def execute(jarvis_addr: str, task: str, enable_skill_library: bool) -> str:
         "skill_id": response.agent_id,
         "result": response.result,
         "error": response.error,
-        "subtasks(generated and excuted by Jarvis, EMPTY_FIELD_INDICATOR indicates that the execution result of this subtask is not obtained)": format_subtasks,
+        "subtasks(generated and excuted by Jarvis)": format_subtasks,
     }
     format_return_str = json.dumps(format_return, indent=4)
     print(f"Jarvis client received:{format_return_str}")
