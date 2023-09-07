@@ -20,7 +20,7 @@ def execute(jarvis_addr: str, task: str) -> str:
         "skill_id": response.agent_id,
     }
 
-    return json.dumps(reps, indent=4)
+    return json.dumps(reps, indent=4, ensure_ascii=False)
 
 
 def save_skill(jarvis_addr: str, skill_id: str) -> str:
