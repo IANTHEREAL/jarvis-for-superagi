@@ -1,8 +1,7 @@
 from abc import ABC
 from superagi.tools.base_tool import BaseToolkit, BaseTool
 from typing import Type, List
-from jarvis_tool import JarvisSuperAGITool, JarvisSkillSavingTool
-from super_jarvis_tool import SuperJarvisTool
+from jarvis_tool import JarvisTool, JarvisSkillSavingTool, SuperJarvisTool
 
 
 class JarvisSuperAGIToolKit(BaseToolkit, ABC):
@@ -13,7 +12,7 @@ class JarvisSuperAGIToolKit(BaseToolkit, ABC):
     )
 
     def get_tools(self) -> List[BaseTool]:
-        return [SuperJarvisTool(), JarvisSuperAGITool(), JarvisSkillSavingTool()]
+        return [SuperJarvisTool(), JarvisTool(), JarvisSkillSavingTool()]
 
     def get_env_keys(self) -> List[str]:
         return ["JarvisAddr"]
@@ -22,7 +21,7 @@ class JarvisSuperAGIToolKit(BaseToolkit, ABC):
 """
 if __name__ == "__main__":
     jarvis_toolkit = JarvisSuperAGIToolKit()
-    #jarvis_toolkit.get_tools()[0]._execute("collect top stories urls from hacker news front page", enable_skill_library=False)
-    response = jarvis_toolkit.get_tools()[2]._execute("badcase")
+    task = "collect top stories urls from hacker news front page"
+    response = jarvis_toolkit.get_tools()[2]._execute("c5093194fa02f9352028fe5d5793dcf9")
     print(response)
 """
