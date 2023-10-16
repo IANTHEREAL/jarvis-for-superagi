@@ -13,8 +13,8 @@ from superagi.tools.base_tool import BaseTool
 def execute(jarvis_addr: str, task: str, enable_skill_library: bool) -> str:
     channel = grpc.insecure_channel(jarvis_addr)
     stub = jarvis_pb2_grpc.JarvisStub(channel)
-    response = stub.ChainExecute(
-        jarvis_pb2.GoalExecuteRequest(
+    response = stub.ExecutePlan(
+        jarvis_pb2.ExecuteRequest(
             goal=task, enable_skill_library=enable_skill_library
         )
     )
@@ -27,7 +27,7 @@ def execute(jarvis_addr: str, task: str, enable_skill_library: bool) -> str:
         format_subtasks.append(format_subtak)
 
     format_return = {
-        "skill_id": response.agent_id,
+        "executor_id": response.executor_id,
         "result": response.result,
         "error": response.error,
         "subtasks(generated and excuted by Jarvis)": format_subtasks,

@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package server;
+
+// The ExecuteRequest message represents the parameters of the execute function.
+message ExecuteRequest {
+  // Executor id is the representative of the current executor. If executor_id are not provided, the task or goal will be assigned to a new executor.
+  string executor_id = 1;
+  // Goal is the overall goal of the task. It is used to generate hints for the.
+  string goal = 2;
+  // Task id is the task num representative of the current task. If not provided, the task number will be automatically generated.
+  int32 task_id = 3;
+  string task = 4;
+  // dependent_tasks are the tasks that the current task depends on. If not provided, the task will be treated as a standalone task; if it is provided and executor_id is not provided, an error will be returned.
+  repeated int32 dependent_tasks = 5;
+  bool skip_gen = 6;
+  bool enable_skill_library = 7;
+}
+
+// The ExecuteResponse message represents the result of the execute function.
+message ExecuteResponse {
+  string executor_id = 1;
+  string goal = 2;
+  int32 task_id = 3;
+  string task = 4;
+  string result = 5;
+  string error = 6;
+  repeated ExecuteResponse subtasks = 7;
+}
+
+// The SaveSkillRequest message represents the parameters of the save skill function.
+message SaveSkillRequest {
+  string executor_id = 1;
+  string skill_name = 2;
+}
+
+// The SaveSkillResponse message represents the result of the save skill function.
+message SaveSkillResponse {
+  string executor_id = 1;
+  string result = 2;
+  string error = 3;
+}
+
+// The Jarvis service provides an execute RPC method.
+service Jarvis {
+  rpc Execute(ExecuteRequest) returns (ExecuteResponse);
+  rpc ExecutePlan(ExecuteRequest) returns (ExecuteResponse);
+  rpc SaveSkill(SaveSkillRequest) returns (SaveSkillResponse);
+}
