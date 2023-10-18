@@ -26,7 +26,7 @@ Note: Provide the OpenAI API Key in config.yaml at least, other items are option
 
 5. Important: Click the gear icon in the upper right corner of the UI interface to enter the 'settings' tab page and set the OpenAI API Key again, save it.
 
-6. Add Jarvis as a tool: Click the '+Add Tool' button under Toolkits, and type: 'https://github.com/IANTHEREAL/jarvis' in the input box on the tab page, click 'Add tool' button.
+6. Add Jarvis as a tool: Click the '+Add Tool' button under Toolkits, and type: 'https://github.com/IANTHEREAL/jarvis-for-superagi' in the input box on the tab page, click 'Add tool' button.
 
 7. Important: Restart docker-compose first, so that you can find the Jarvis toolkit loaded in the tool list.
 
